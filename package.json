@@ -11,6 +11,7 @@
 		"format": "pnpm run lint && pnpm run prettier",
 		"commitlint": "commitlint --edit",
 		"type:check": "tsc --pretty --noEmit",
+		"server:dev": "json-server --watch ./src/mock/db.json -p 3005",
 		"prepare": "husky install"
 	},
 	"dependencies": {
@@ -31,6 +32,7 @@
 		"eslint-config-next": "14.2.3",
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^9.0.11",
+		"json-server": "1.0.0-alpha.23",
 		"postcss": "^8",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.14",

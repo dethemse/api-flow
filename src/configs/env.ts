@@ -7,9 +7,11 @@ export const env = createEnv({
 	},
 	client: {
 		NEXT_PUBLIC_BASE_URL: z.string().url(),
+		NEXT_PUBLIC_INTERNAL_API: z.string().url(),
 	},
 	runtimeEnv: {
 		NODE_ENV: process.env.NODE_ENV,
-		NEXT_PUBLIC_BASE_URL: process.env.BASE_URL,
+		NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+		NEXT_PUBLIC_INTERNAL_API: process.env.NEXT_PUBLIC_INTERNAL_API,
 	},
 });
