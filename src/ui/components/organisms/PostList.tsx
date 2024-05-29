@@ -8,8 +8,8 @@ type Props = {
 	title: string;
 	posts: Post[];
 
-	onLike: () => void;
-	onDelete: () => void;
+	onLike: (post: Post) => void;
+	onDelete: (postId: string) => void;
 };
 
 export const PostList = ({ title, posts, onLike, onDelete }: Props) => {
@@ -20,12 +20,12 @@ export const PostList = ({ title, posts, onLike, onDelete }: Props) => {
 				{posts.map((post) => (
 					<li key={post.id} className="flex items-center gap-x-2">
 						<p>{post.title}</p>
-						<button type="button" onClick={onLike}>
+						<button type="button" onClick={() => onLike(post)}>
 							<ThumbsUpIcon
 								className={cn('size-6', post.isLiked ? 'text-blue-600' : 'text-gray-400')}
 							/>
 						</button>
-						<button type="button" onClick={onDelete}>
+						<button type="button" onClick={() => onDelete(post.id)}>
 							<XIcon className="size-6 text-red-600" />
 						</button>
 					</li>
