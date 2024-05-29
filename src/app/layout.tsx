@@ -2,6 +2,7 @@ import 'server-only';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { PostsProvider } from '@/providers/PostsProvider';
 import { LayoutProps } from '@/types/app';
 import './globals.css';
 
@@ -15,7 +16,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<PostsProvider>{children}</PostsProvider>
+			</body>
 		</html>
 	);
 }
