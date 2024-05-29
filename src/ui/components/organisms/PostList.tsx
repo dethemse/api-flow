@@ -1,11 +1,18 @@
+'use client';
+
 import { Post } from '@/types/models/Post';
+import { ThumbsUpIcon, XIcon } from '@/ui/icons';
+import { cn } from '@/utils/cn';
 
 type Props = {
 	title: string;
 	posts: Post[];
+
+	onLike: () => void;
+	onDelete: () => void;
 };
 
-export const PostList = ({ title, posts }: Props) => {
+export const PostList = ({ title, posts, onLike, onDelete }: Props) => {
 	return (
 		<div className="rounded-sm border border-gray-500 p-6">
 			<h1 className="my-4 text-2xl">{title}</h1>
@@ -13,7 +20,14 @@ export const PostList = ({ title, posts }: Props) => {
 				{posts.map((post) => (
 					<li key={post.id} className="flex items-center gap-x-2">
 						<p>{post.title}</p>
-						<p className="text-sm text-gray-500">{post.views}</p>
+						<button type="button" onClick={onLike}>
+							<ThumbsUpIcon
+								className={cn('size-6', post.isLiked ? 'text-blue-600' : 'text-gray-400')}
+							/>
+						</button>
+						<button type="button" onClick={onDelete}>
+							<XIcon className="size-6 text-red-600" />
+						</button>
 					</li>
 				))}
 			</ul>

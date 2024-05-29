@@ -5,5 +5,5 @@ import { getPosts } from '../_actions';
 export const PostsServer = async () => {
 	const posts = await getPosts();
 
-	return <PostList title="Posts Server" posts={posts} />;
+	return <PostList title="Posts Server" posts={posts} onLike={() => {}} onDelete={() => {}} />;
 };

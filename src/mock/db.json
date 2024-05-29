@@ -3,27 +3,27 @@
 		{
 			"id": "1",
 			"title": "Unraveling the Mystery of Quantum Computing",
-			"views": 100
+			"isLiked": false
 		},
 		{
 			"id": "2",
 			"title": "Journey into the Cosmos: Exploring Black Holes",
-			"views": 200
+			"isLiked": false
 		},
 		{
 			"id": "3",
 			"title": "The Importance of Sleep for Mental Health",
-			"views": 350
+			"isLiked": false
 		},
 		{
 			"id": "4",
 			"title": "Exploring the Wonders of Deep Sea Creatures",
-			"views": 600
+			"isLiked": false
 		},
 		{
 			"id": "5",
 			"title": "Tips for Effective Time Management",
-			"views": 450
+			"isLiked": false
 		}
 	]
 }
