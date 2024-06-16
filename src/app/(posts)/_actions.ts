@@ -47,3 +47,7 @@ export const deletePost = async (...args: Parameters<typeof internalApi.posts.de
 
 	revalidateTag(QUERY_TAG);
 };
+
+export const refreshPostsCache = async () => {
+	revalidateTag(QUERY_TAG);
+};

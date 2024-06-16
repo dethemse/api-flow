@@ -3,6 +3,7 @@
 import { usePosts } from '@/providers/PostsProvider';
 import * as internalApi from '@/services/api/internal';
 import { getErrorMessage } from '@/utils/getErrorMessage';
+import { refreshPostsCache } from '../_actions';
 
 export const usePostsMutation = () => {
 	const { state, setPosts, setErrors, setIsLoading } = usePosts();
@@ -16,6 +17,7 @@ export const usePostsMutation = () => {
 		try {
 			// Server API
 			const createdPost = await internalApi.posts.create(input);
+			refreshPostsCache();
 
 			// Client State
 			setPosts([...posts, createdPost]);
@@ -35,6 +37,7 @@ export const usePostsMutation = () => {
 		try {
 			// Server API
 			const updatedPost = await internalApi.posts.update(postId, input);
+			refreshPostsCache();
 
 			// Client State
 			const updated = posts.map((post) => (post.id === postId ? updatedPost : post));
@@ -55,6 +58,7 @@ export const usePostsMutation = () => {
 		try {
 			// Server API
 			await internalApi.posts.deleteItem(postId);
+			refreshPostsCache();
 
 			// Client State
 			const updated = posts.filter((post) => post.id !== postId);
