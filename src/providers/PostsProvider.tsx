@@ -61,8 +61,14 @@ type GlobalState = {
 
 const PostsContext = createContext<GlobalState | null>(null);
 
-export const PostsProvider = ({ children }: PropsWithChildren) => {
-	const [state, dispatch] = useReducer(postsReducer, initialLocalState);
+export const PostsProvider = ({
+	children,
+	initialPosts,
+}: PropsWithChildren<{ initialPosts: Post[] }>) => {
+	const [state, dispatch] = useReducer(postsReducer, {
+		posts: initialPosts,
+		...initialLocalState,
+	});
 
 	const setPosts = (posts: NonNullable<LocalState['posts']>) => {
 		dispatch({ type: 'SET_POSTS', payload: posts });
