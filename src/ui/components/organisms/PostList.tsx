@@ -8,8 +8,8 @@ type Props = {
 	title: string;
 	posts: Post[];
 
-	onLike: (post: Post) => void;
-	onDelete: (postId: string) => void;
+	onLike: (post: Post) => Promise<void>;
+	onDelete: (postId: string) => Promise<void>;
 };
 
 export const PostList = ({ title, posts, onLike, onDelete }: Props) => {
